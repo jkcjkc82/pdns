@@ -38,6 +38,8 @@
 
 json11::Json HttpRequest::json()
 {
+char c; c = getchar(); if (c == EOF) { cout<<"EOF!"<<endl; }
+
   string err;
   if(this->body.empty()) {
     g_log<<Logger::Debug<<logprefix<<"JSON document expected in request body, but body was empty" << endl;

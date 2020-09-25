@@ -358,6 +358,7 @@ static int guardian(int argc, char **argv)
 #include <execinfo.h>
 static void tbhandler(int num)
 {
+
   g_log<<Logger::Critical<<"Got a signal "<<num<<", attempting to print trace: "<<endl;
   void *array[20]; //only care about last 17 functions (3 taken with tracing support)
   size_t size;
@@ -380,6 +381,8 @@ static void tbhandler(int num)
 //! The main function of pdns, the pdns process
 int main(int argc, char **argv)
 {
+
+
   versionSetProduct(ProductAuthoritative);
   reportAllTypes(); // init MOADNSParser
 

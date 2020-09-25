@@ -59,7 +59,9 @@ jobs:
         sudo apt-get --no-install-recommends install -qq -y liblua5.3-dev ragel bison flex libboost-all-dev libssl-dev libcurl4-openssl-dev
         autoreconf -vfi
         ./configure
-        make -j8
+        make -C ext -j8
+        make -C modules -j8
+        make -C pdns -j8
 
     - name: Perform CodeQL Analysis
       uses: github/codeql-action/analyze@v1

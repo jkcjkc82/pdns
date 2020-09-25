@@ -56,9 +56,9 @@ jobs:
     #    uses a compiled language
 
     - run: |
-        sudo apt-get --no-install-recommends install -qq -y liblua5.3-dev ragel bison flex libboost-all-dev libssl-dev libcurl4-openssl-dev
+        sudo apt-get --no-install-recommends install -qq -y liblua5.3-dev ragel bison flex libboost-all-dev libssl-dev libcurl4-openssl-dev default-libmysqlclient-dev libcdb-dev libgeoip-dev libkrb5-dev libldap2-dev liblmdb-dev libmaxminddb-dev libp11-kit-dev libpq-dev libprotobuf-dev libsodium-dev libsqlite3-dev libsystemd-dev libyaml-cpp-dev protobuf-compiler unixodbc-dev
         autoreconf -vfi
-        ./configure
+        ./configure --with-modules='bind geoip gmysql godbc gpgsql gsqlite3 ldap lmdb lua2 pipe random remote tinydns' --enable-tools --enable-ixfrdist --enable-dns-over-tls --enable-experimental-pkcs11 --with-libsodium --with-protobuf --enable-lua-records
         make -C ext -j8
         make -C modules -j8
         make -C pdns -j8

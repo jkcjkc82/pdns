@@ -56,9 +56,9 @@ jobs:
     #    uses a compiled language
 
     - run: |
-      autoreconf -vfi
-      ./configure
-      make -j8
+        autoreconf -vfi
+        ./configure
+        make -j8
 
     - name: Perform CodeQL Analysis
       uses: github/codeql-action/analyze@v1
